@@ -1,0 +1,1 @@
+a primeira coisa é criar a janela principal. E depois ir colocando coisas em cima da janela

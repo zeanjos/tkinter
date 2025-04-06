@@ -13,3 +13,5 @@ CREATE TABLE IF NOT EXISTS Usuario(
 """)
 
 conexao.close()
+
+print('Conectado ao banco de dados')

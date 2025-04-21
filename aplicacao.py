@@ -14,6 +14,7 @@ def registro():
     checkbox.place_forget()
     login_correto.place_forget()
     cadastro.place_forget()
+    criar_cadastro.place_forget()
 
     label_email = ctk.CTkLabel(janela, text = 'E-mail', justify = 'center')
     label_email.place(relx = 0.5, rely = 0.5, anchor = 'center')
@@ -29,6 +30,9 @@ def registro():
     input_telefone = ctk.CTkEntry(janela, placeholder_text='Digite seu telefone', justify = 'center')
     input_telefone.place(relx = 0.5, rely = 0.8, anchor = 'center')
     pegar_telefone = input_telefone.get()
+
+    criar_cadastro = ctk.CTkButton(janela, text='Criar cadastro', command= registro)
+    criar_cadastro.place(relx = 0.5, rely = 0.9, anchor = 'center')
 
 ctk.set_appearance_mode('dark')
 janela = ctk.CTk()
@@ -56,17 +60,20 @@ checkbox = ctk.CTkCheckBox(janela, text = 'Lembrar login')
 checkbox.place(relx = 0.5, rely = 0.5, anchor = 'center')
 
 
-
 botao = ctk.CTkButton(janela, text='Entrar', command=botao_callback)
 botao.place(relx = 0.5, rely = 0.6, anchor = 'center')
 
 
-
-cadastro = ctk.CTkButton(janela, text='Criar cadastro', command= registro)
+cadastro = ctk.CTkButton(janela, text='Primeiro acesso', command= registro)
 cadastro.place(relx = 0.5, rely = 0.7, anchor = 'center')
 
 login_correto = ctk.CTkLabel(janela, text='')
 login_correto.place(relx = 0.5, rely = 0.8, anchor = 'center')
 
+criar_cadastro = ctk.CTkButton(janela, text='Criar cadastro', command= registro)
+criar_cadastro.place(relx = 0.5, rely = 0.9, anchor = 'center')
+
 janela.mainloop()
+
+
 

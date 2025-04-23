@@ -1,10 +1,5 @@
 import customtkinter as ctk
-import sqlite3 
-database = sqlite3.connect('primeiro_banco.db')
-cursor = database.cursor()
-
-cursor.execute("CREATE TABLE cadastro (usuario text, senha integer, email text, telefone integer)")
-cursor.execute("INSERT INTO cadastro")
+from database import insert_date
 def botao_callback():
     
     usuario = input_usuario.get()
@@ -26,8 +21,9 @@ def registro():
     def botao_callback_dois():
         usuario_cadastro = input_usuario.get()
         senha_cadastro = input_senha.get()
-        email_cadastro = input_email.get()  
-        
+        email_cadastro = input_email.get()
+        telefone_cadastro = input_telefone.get()
+        insert_date(usuario_cadastro, senha_cadastro, email_cadastro, telefone_cadastro)
 
     input_email = ctk.CTkEntry(janela, placeholder_text='Digite seu E-mail', justify = 'center')
     input_email.place(relx = 0.5, rely = 0.4, anchor = 'center')

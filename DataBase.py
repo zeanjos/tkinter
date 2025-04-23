@@ -1,17 +1,19 @@
 import sqlite3
-conexao = sqlite3.connect('Usuarios.db')
 
-cursor = conexao.cursor()
+database = sqlite3.connect('primeiro_banco.db')
+cursor = database.cursor()
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS Usuario(
-    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-    User TEXT NOT NULL,
-    Password TEXT NOT NULL
-    
+cursor.execute('''CREATE TABLE IF NOT EXISTS cadastro (
+    numero INTEGER PRIMARY KEY AUTOINCREMENT,
+    usuario TEXT,
+    senha INTEGER,
+    email TEXT,
+    telefone INTEGER
 )
-""")
+''')
 
-conexao.close()
-
+def insert_date(usuario, senha, email, telefone):
+    cursor.execute("INSERT INTO cadastro (usuario, senha, email, telefone) VALUES(?, ?, ?, ?)", (usuario, senha, email, telefone))
+    database.commit()
+    database.close()
 print('Conectado ao banco de dados')

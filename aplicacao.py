@@ -5,8 +5,6 @@ def botao_callback():
     usuario = input_usuario.get()
     senha = input_senha.get()
 
-
-
     if usuario == 'Janjos' and senha == 'jumento123':
         login_correto.configure(text='Login realizado corretamente!', text_color='green')
     else:
@@ -42,8 +40,6 @@ janela.title('Sistema de login')
 janela.geometry('600x600')
 
 
-
-
 input_usuario = ctk.CTkEntry(janela, placeholder_text='Digite seu usuario', justify='center')
 input_usuario.place(relx = 0.5, rely = 0.2, anchor = 'center')
 pegar_usuario = input_usuario.get()
@@ -70,6 +66,3 @@ login_correto.place(relx = 0.5, rely = 0.7, anchor = 'center')
 
 
 janela.mainloop()
-
-
-

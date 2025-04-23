@@ -1,4 +1,5 @@
 import customtkinter as ctk
+import time
 from database import insert_date
 def botao_callback():
     
@@ -15,7 +16,6 @@ def registro():
     checkbox.place_forget()
     login_correto.place_forget()
     cadastro.place_forget()
-    
     def botao_callback_dois():
         usuario_cadastro = input_usuario.get()
         senha_cadastro = input_senha.get()

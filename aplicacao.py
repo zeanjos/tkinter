@@ -1,6 +1,7 @@
 import customtkinter as ctk
-import time
+
 from database import insert_date
+
 def botao_callback():
     
     usuario = input_usuario.get()
@@ -11,25 +12,27 @@ def botao_callback():
     else:
         login_correto.configure(text='Login incorreto!', text_color='red')
 
+
 def registro():
     botao.place_forget()
     checkbox.place_forget()
     login_correto.place_forget()
     cadastro.place_forget()
+    
+    if (pegar_usuario == "" and pegar_email == "" and pegar_telefone == ""):
+        messagebox = ctk.CTkLabel(janela, text='Preencha todos os campos.')
     def botao_callback_dois():
         usuario_cadastro = input_usuario.get()
         senha_cadastro = input_senha.get()
-        email_cadastro = input_email.get()
-        telefone_cadastro = input_telefone.get()
-        insert_date(usuario_cadastro, senha_cadastro, email_cadastro, telefone_cadastro)
+        insert_date(usuario_cadastro, senha_cadastro, pegar_email, pegar_telefone)
 
     input_email = ctk.CTkEntry(janela, placeholder_text='Digite seu E-mail', justify = 'center')
     input_email.place(relx = 0.5, rely = 0.4, anchor = 'center')
-    pegar_email = input_email.get()
+    pegar_email = input_email.get().strip()
 
     input_telefone = ctk.CTkEntry(janela, placeholder_text='Digite seu telefone', justify = 'center')
     input_telefone.place(relx = 0.5, rely = 0.5, anchor = 'center')
-    pegar_telefone = input_telefone.get()
+    pegar_telefone = input_telefone.get().strip()
 
     criar_cadastro = ctk.CTkButton(janela, text='Criar cadastro', command=botao_callback_dois)
     criar_cadastro.place(relx = 0.5, rely = 0.6, anchor = 'center')
@@ -42,11 +45,12 @@ janela.geometry('600x600')
 
 input_usuario = ctk.CTkEntry(janela, placeholder_text='Digite seu usuario', justify='center')
 input_usuario.place(relx = 0.5, rely = 0.2, anchor = 'center')
-pegar_usuario = input_usuario.get()
+pegar_usuario = input_usuario.get().strip()
+
 
 input_senha = ctk.CTkEntry(janela, placeholder_text='Digite sua senha', justify = 'center', show='*')
 input_senha.place(relx = 0.5, rely = 0.3, anchor = 'center')
-pegar_senha = input_senha.get()
+pegar_senha = input_senha.get().strip()
 
 
 checkbox = ctk.CTkCheckBox(janela, text = 'Lembrar login')
@@ -60,7 +64,7 @@ botao.place(relx = 0.5, rely = 0.4, anchor = 'center')
 cadastro = ctk.CTkButton(janela, text='Primeiro acesso', command= registro)
 cadastro.place(relx = 0.5, rely = 0.5, anchor = 'center')
 
-login_correto = ctk.CTkLabel(janela, text='')
+login_correto = ctk.CTkLabel(janela, text='Login correto.')
 login_correto.place(relx = 0.5, rely = 0.7, anchor = 'center')
 
 

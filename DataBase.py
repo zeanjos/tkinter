@@ -5,8 +5,8 @@ cursor = database.cursor()
 
 cursor.execute('''CREATE TABLE IF NOT EXISTS cadastro (
     numero INTEGER PRIMARY KEY AUTOINCREMENT,
-    usuario TEXT NOT NULL
-    senha INTEGER NOT NULL
+    usuario TEXT NOT NULL,
+    senha INTEGER NOT NULL,
     email TEXT NOT NULL,
     telefone INTEGER NOT NULL
 )
